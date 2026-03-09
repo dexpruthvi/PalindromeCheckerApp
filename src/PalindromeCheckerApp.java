@@ -8,21 +8,22 @@ public class PalindromeCheckerApp {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a word: ");
-        String word = scanner.nextLine();
+        System.out.print("Enter a sentence: ");
+        String sentence = scanner.nextLine();
 
-        // convert to lowercase for case-insensitive check
-        String original = word.toLowerCase();
+        // remove spaces and convert to lowercase
+        String cleaned = sentence.replaceAll("\\s+", "").toLowerCase();
+
         String reversed = "";
 
-        for(int i = original.length() - 1; i >= 0; i--) {
-            reversed += original.charAt(i);
+        for(int i = cleaned.length() - 1; i >= 0; i--) {
+            reversed += cleaned.charAt(i);
         }
 
-        if(original.equals(reversed)) {
-            System.out.println(word + " is a Palindrome");
+        if(cleaned.equals(reversed)) {
+            System.out.println(sentence + " is a Palindrome");
         } else {
-            System.out.println(word + " is NOT a Palindrome");
+            System.out.println(sentence + " is NOT a Palindrome");
         }
 
         scanner.close();
